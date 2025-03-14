@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Festival Culturale</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/eventi">Eventi</a>
+        <a href="/sedi">Sedi</a>
+        <a href="/auth/login">Login</a>
+      </nav>
+    </header>
+
+    <h1>Eventi Disponibili</h1>
+
+    <div class="event-list">
+      <div th:each="evento : ${eventi}">
+        <div class="event-card">
+          <h2 th:text="${evento.nome}"></h2>
+          <p th:text="${evento.descrizione}"></p>
+          <a th:href="@{/eventi/{id}(id=${evento.id})}">Vedi Dettagli</a>
+        </div>
+      </div>
+    </div>
+    <a href="/auth/logout">Logout</a>
+  </body>
+</html>

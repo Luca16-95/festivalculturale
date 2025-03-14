@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestione Eventi</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/admin">Dashboard</a>
+        <a href="/admin/createEvento">Crea Evento</a>
+        <a href="/admin/createSede">Crea Sede</a>
+      </nav>
+    </header>
+
+    <h1>Gestione Eventi</h1>
+
+    <div th:each="evento : ${eventi}">
+      <div class="event-card">
+        <h2 th:text="${evento.nome}"></h2>
+        <p th:text="${evento.descrizione}"></p>
+        <a th:href="@{/admin/eventi/{id}/delete(id=${evento.id})}"
+          >Elimina Evento</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

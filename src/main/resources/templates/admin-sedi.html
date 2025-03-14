@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestione Sedi</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/admin">Dashboard</a>
+        <a href="/admin/createSede">Crea Sede</a>
+      </nav>
+    </header>
+
+    <h1>Gestione Sedi</h1>
+
+    <div th:each="sede : ${sedi}">
+      <div class="sede-card">
+        <h2 th:text="${sede.nome}"></h2>
+        <p th:text="${sede.descrizione}"></p>
+        <a th:href="@{/admin/sedi/{id}/delete(id=${sede.id})}">Elimina Sede</a>
+      </div>
+    </div>
+  </body>
+</html>
